@@ -1,4 +1,3 @@
-// script.js
 document.getElementById("send-btn").addEventListener("click", async function() {
     var inputBox = document.getElementById("input-box");
     var userMessage = inputBox.value.trim();
@@ -7,7 +6,7 @@ document.getElementById("send-btn").addEventListener("click", async function() {
         // Append user message to chat
         appendMessage("User", userMessage);
 
-        // Send the message to your external server
+        // Send the message to your Google Apps Script Web App
         fetch('https://script.google.com/macros/s/AKfycbxD9YW3N7grbVjVOdo8L7-sCECT4kQCgQcPUEVHVQRswvpaZo8y_WEmJV2Xb7IET-Yd/exec', {
             method: 'POST',
             headers: {
@@ -27,3 +26,10 @@ document.getElementById("send-btn").addEventListener("click", async function() {
         inputBox.value = "";
     }
 });
+
+function appendMessage(sender, message) {
+    var chatBox = document.getElementById("chat-box");
+    var messageDiv = document.createElement("div");
+    messageDiv.textContent = sender + ": " + message;
+
+    // Add copy button
