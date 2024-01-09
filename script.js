@@ -7,8 +7,8 @@ document.getElementById("send-btn").addEventListener("click", async function() {
         // Append user message to chat
         appendMessage("User", userMessage);
 
-        // Send the message to your server
-        fetch('/chat', {
+        // Send the message to your external server
+        fetch('https://script.google.com/macros/s/AKfycbxD9YW3N7grbVjVOdo8L7-sCECT4kQCgQcPUEVHVQRswvpaZo8y_WEmJV2Xb7IET-Yd/exec', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
