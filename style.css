@@ -23,6 +23,11 @@ body, html {
     background-color: #fafafa;
 }
 
+#spinner {
+    text-align: center;
+    padding: 10px;
+}
+
 #input-box {
     height: 60px;
     border: none;
