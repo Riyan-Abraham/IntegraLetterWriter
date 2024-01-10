@@ -4,6 +4,7 @@ document.getElementById("send-btn").addEventListener("click", async function() {
     var spinner = document.getElementById("spinner");
 
     if (userMessage !== "") {
+        console.log("Sending message:", userMessage); // Log message send
         appendMessage("User", userMessage);
         spinner.style.display = "block"; // Show the spinner
 
@@ -14,12 +15,13 @@ document.getElementById("send-btn").addEventListener("click", async function() {
         })
         .then(response => response.json())
         .then(data => {
+            console.log("Received response:", data); // Log response
             spinner.style.display = "none"; // Hide the spinner
             appendMessage("GPT Assistant", data.reply);
         })
         .catch(error => {
+            console.log("Error:", error); // Log errors
             spinner.style.display = "none"; // Hide the spinner on error
-            console.error('Error:', error);
             appendMessage("GPT Assistant", "Sorry, there was an error processing your request.");
         });
 
